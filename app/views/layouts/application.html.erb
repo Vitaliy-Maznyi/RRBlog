@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Myblog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button> <a class="navbar-brand" href="/posts">MyBlog</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/posts/new">New post</a>
+            </li>
+            <li>
+              <a href="/budget">Simple Budget</a>
+            </li>
+          </ul>
+          <!--search form-->
+          <%= form_tag(posts_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
+              <div class="form-group">
+              <%= text_field_tag :search, params[:search], placeholder: "Search Posts", class: "form-control" %>
+              </div>
+              <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+          <% end %>
+          <!--sign up/in/out -->
+          <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to destroy_user_session_path, :method => :delete do %>
+                      <span class="glyphicon glyphicon-log-out"></span> Sign Out, <%= current_user.name %>?
+                  <% end %>
+
+                </li>
+              <% else %>
+                  <li>
+                    <%= link_to  new_user_session_path do %>
+                      <span class="glyphicon glyphicon-log-in"></span> Sign In
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to new_user_registration_path do %>
+                        <span class="glyphicon glyphicon-user"></span> Sign Up
+                    <% end %>
+                  </li>
+              <% end %>
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+
+    </div>
+  </div>
+</div>
+
+<!--notices and alerts messages-->
+<%if notice.present? %>
+  <div class="alert alert-info alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<%if alert.present? %>
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <%= flash[:alert] %>
+</div>
+<% end %>
+
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+
+      <h1 class="page-header">
+        Blog for Rails Reactor
+        <small>I tried to make it nice</small>
+      </h1>
+
+      <!--Content-->
+      <%=yield %>
+
+    </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; MyBlog for Rails Reactor 2016</p>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+  </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!--alerts auto hide -->
+  <script type="text/javascript">
+    window.setTimeout(function()
+    {
+      $(".alert").fadeTo(500, 0).slideUp(500, function()
+      {
+        $(this).remove();
+      });
+    }, 3000);
+  </script>
+
+
+
+</body>
+</html>

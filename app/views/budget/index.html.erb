@@ -1,0 +1,78 @@
+<script type="text/javascript" charset="utf-8">
+  $( document ).ready(function() {
+
+    $('tr').each(function() {
+      var Row = $(this);
+      Row.find('td').each(function() {
+        var Value = parseFloat($(this).text());
+        if (!isNaN(Value) && Value < 0) {
+          Row.css('background-color', 'rgba(255, 0, 0, 0.40)');
+        }
+        else if (!isNaN(Value) && Value > 0) {
+          Row.css('background-color', 'rgba(0, 255, 0, 0.40)');
+        }
+      });
+    });
+
+    $( "#sum_up" ).click(function() {
+      $(".amounts").css("display", "none");
+      $(".amounts_per_day").css("display", "table-row");
+
+    });
+  });
+
+  function calculateSum() {
+    var sum = 0;
+      $(".am_per_day_val").each(function() {
+        var value = $(this).text();
+        // add only if the value is number
+        if(!isNaN(value) && value.length != 0) {
+          sum += parseFloat(value);
+        }
+      });
+    $('#total').text(sum);
+  }
+
+
+
+  $(calculateSum);
+
+
+</script>
+
+<h1>Simple budget</h1>
+<table class="table table-condensed" style="width: 400px; background-color: white;" id="budget" >
+  <tr>
+    <td style="text-align:center" colspan="2">Budget table</td>
+  </tr>
+  <% @budgets.each do |budget| %>
+  <tr class="amounts" style="display: table-row">
+    <td><%= budget.amount %></td>
+    <td><%= budget.source %></td>
+  </tr>
+  <% end %>
+  <% @budget_sum.each do |budget| %>
+  <tr class="amounts_per_day" style="display: none">
+    <td class="am_per_day_val"><%= budget.amount_per_day %></td>
+    <td>Sum( <%= budget.updated_at %> )</td>
+  </tr>
+  <% end %>
+  <tr>
+    <td id="total"></td>
+    <td>Total</td>
+  </tr>
+</table>
+
+<div class="form-inline">
+<%= form_for @budget, url: {controller: "budget", action: "create"}, class: "form-inline"  do |f| %>
+    <div class="form-group">
+      <%= label_tag(:amount, "Amount:") %>
+      <%= f.text_field :amount, class: "form-control"  %>
+      <%= label_tag(:source, "Source:") %>
+      <%= f.text_area :source, class: "form-control"  %>
+    </div>
+    <%= f.submit "Add", class: 'btn btn-success' %>
+<% end %>
+  <input class="btn btn-default" id="sum_up" type="button" value="Sum Up"/>
+</div>
+
