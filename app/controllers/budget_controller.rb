@@ -7,8 +7,12 @@ class BudgetController < ApplicationController
 
   def create
     @budget = Budget.new(budget_params)
-    @budget.amount_per_day = Budget.summ(amounts_today) + @budget.amount
-    @budget.save ? (redirect_to action: "index") : (render 'index')
+    if !@budget.amount.is_a? Integer or @budget.amount == nil or @budget.amount == 0
+      redirect_to action: "index"
+    else
+      @budget.amount_per_day = Budget.summ(amounts_today) + @budget.amount
+      @budget.save ? (redirect_to action: "index") : (render 'index')
+    end
   end
 
   def destroy
