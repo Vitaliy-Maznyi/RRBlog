@@ -1,4 +1,6 @@
 class Budget < ActiveRecord::Base
+  validates :amount, numericality: { only_integer: true }
+  validates :source, presence: true
   def self.today
     where("created_at >= ?", Time.zone.now.beginning_of_day)
   end
