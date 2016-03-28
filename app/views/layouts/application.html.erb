@@ -22,9 +22,11 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
             <li>
               <a href="/posts/new">New post</a>
             </li>
+            <% end %>
             <li>
               <a href="/budget">Simple Budget</a>
             </li>
