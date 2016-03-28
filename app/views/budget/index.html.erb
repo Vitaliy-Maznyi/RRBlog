@@ -1,9 +1,24 @@
 <script type="text/javascript" charset="utf-8">
   $( document ).ready(function() {
 
+    function colorRow(){
+
+    }
+
     $('tr').each(function() {
       var Row = $(this);
-      Row.find('td').each(function() {
+      var amountRow = Row.find(".amount")
+      var amPerDayRow = Row.find(".am_per_day_val")
+      amountRow.each(function(){
+        var Value = parseFloat($(this).text());
+        if (!isNaN(Value) && Value < 0) {
+          Row.css('background-color', 'rgba(255, 0, 0, 0.40)');
+        }
+        else if (!isNaN(Value) && Value > 0) {
+          Row.css('background-color', 'rgba(0, 255, 0, 0.40)');
+        }
+      });
+      amPerDayRow.each(function(){
         var Value = parseFloat($(this).text());
         if (!isNaN(Value) && Value < 0) {
           Row.css('background-color', 'rgba(255, 0, 0, 0.40)');
@@ -47,7 +62,7 @@
   </tr>
   <% @budgets.each do |budget| %>
   <tr class="amounts" style="display: table-row">
-    <td><%= budget.amount %></td>
+    <td class="amount"><%= budget.amount %></td>
     <td><%= budget.source %></td>
   </tr>
   <% end %>
