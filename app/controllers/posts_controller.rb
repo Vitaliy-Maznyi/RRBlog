@@ -13,7 +13,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if user_signed_in?
+      @post = Post.new
+    else
+      redirect_to posts_url
+    end
   end
 
   def edit
