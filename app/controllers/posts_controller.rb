@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_filter :authenticate_user!, except: [ :index, :show ]
+
   def index
     if params[:search]
       @post = Post.search(params[:search])
@@ -13,11 +15,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    if user_signed_in?
-      @post = Post.new
-    else
-      redirect_to posts_url
-    end
+    @post = Post.new
   end
 
   def edit
