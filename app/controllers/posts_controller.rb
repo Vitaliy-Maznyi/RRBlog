@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_filter :authenticate_user!, except: [ :index, :show ]
+  before_action :authenticate_user!, except: [ :index, :show ]
 
   def index
     if params[:search]
@@ -20,9 +20,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    if current_user.id != @post.user.id
-      redirect_to posts_url
-    end
+    redirect_to posts_url unless current_user.id == @post.user.id
   end
 
   def create
