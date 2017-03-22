@@ -11,6 +11,10 @@ describe PostsController do
       expect(assigns(:post)).to eq(post[2])
     end
 
+    it 'not fills another post' do
+      expect(assigns(:post)).not_to eq(post[1])
+    end
+
     it 'renders the :show view' do
       expect(response).to render_template :show
     end

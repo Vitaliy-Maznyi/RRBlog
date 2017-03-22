@@ -7,7 +7,7 @@ describe PostsController do
       sign_in user
     end
 
-    it 'deletes the flight' do
+    it 'deletes the post' do
       expect{
         delete :destroy, id: post.id
       }.to change(Post,:count).by(-1)
