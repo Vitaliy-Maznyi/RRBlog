@@ -3,16 +3,13 @@ describe PostsController do
   let(:post) { create :post, user: user }
 
   context 'GET #edit' do
-
-    before(:each) do|example|
-      unless example.metadata[:skip_before]
-        sign_in user
-      end
+    before(:each) do |example|
+      sign_in user unless example.metadata[:skip_before]
       get :edit, id: post.id
     end
 
     it 'redirects to sign in form if unauthorized', :skip_before do
-      expect(response).to redirect_to( new_user_session_path )
+      expect(response).to redirect_to(new_user_session_path)
     end
 
     it 'assigns a new post to @post' do
@@ -22,6 +19,5 @@ describe PostsController do
     it 'renders the edit template' do
       expect(response).to render_template :edit
     end
-
   end
 end

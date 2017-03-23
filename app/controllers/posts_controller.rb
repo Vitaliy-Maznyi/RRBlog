@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-
-  before_action :authenticate_user!, except: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  load_and_authorize_resource except: [ :index, :show]
 
   def index
     if params[:search]
@@ -15,12 +15,12 @@ class PostsController < ApplicationController
   end
 
   def new
+    redirect_to root_path unless current_user
     @post = Post.new
   end
 
   def edit
     @post = Post.find(params[:id])
-    redirect_to posts_url unless current_user.id == @post.user.id
   end
 
   def create

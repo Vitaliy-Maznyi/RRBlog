@@ -11,7 +11,7 @@
     <p><%= truncate(post.text, :length => 500) %></p>
     <hr>
 <a class="btn btn-primary" href="/posts/<%=post.id%>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-<% if user_signed_in? && current_user.id == post.user.id %>
+<% if can? :update, @post %>
   <a class="btn btn-primary" href="/posts/<%=post.id%>/edit">Edit <span class="glyphicon glyphicon-edit"></span></a>
   <%= link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
     Delete <span class="glyphicon glyphicon-remove"></span>

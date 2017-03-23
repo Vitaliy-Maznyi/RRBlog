@@ -1,11 +1,11 @@
 describe PostsController do
-  let(:user) {create :user}
-  let(:post) {create :post, user: user}
+  let(:user) { create :user }
+  let(:post) { create :post, user: user }
   let(:valid_attr) do
     { title: 'new_valid_title', text: 'valid text' }
   end
   let(:invalid_attr) do
-    {title: '', text: 'valid text'}
+    { title: '', text: 'valid text' }
   end
 
   def put_update(attr)
@@ -32,7 +32,7 @@ describe PostsController do
   context 'with valid attributes' do
     it 'redirects to index action' do
       put_update(valid_attr)
-      expect(response).to redirect_to( post_path(assigns(:post)) )
+      expect(response).to redirect_to(post_path(assigns(:post)))
     end
 
     it 'updates values' do
