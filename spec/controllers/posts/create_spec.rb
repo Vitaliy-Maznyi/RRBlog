@@ -7,7 +7,7 @@ describe PostsController do
     end
 
     def post_query(title = '')
-      post :create, user_id: user.id, post: attributes_for(:post, title: title)
+      post :create, post: attributes_for(:post, title: title)
     end
 
     context 'with valid attributes' do
