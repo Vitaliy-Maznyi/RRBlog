@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
-  get 'persons/profile'
+  resources :users, only: :show
+  get '/profile', to: 'users#index'
 
   resources :posts do
     resources :comments, only: [:create, :destroy]
