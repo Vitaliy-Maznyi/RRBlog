@@ -21,10 +21,16 @@ group :development do
 end
 
 gem 'bootstrap-sass'
-gem 'database_cleaner'
 gem 'devise'
 gem 'rspec-rails'
 gem 'factory_girl_rails'
 gem 'rubocop', '~> 0.47.1', require: false
 gem 'cancancan'
+
+group :test do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+end
+
 

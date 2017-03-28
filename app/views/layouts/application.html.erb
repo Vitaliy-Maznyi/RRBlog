@@ -46,7 +46,7 @@
               <% if user_signed_in? %>
                 <li>
                   <%= link_to destroy_user_session_path, :method => :delete do %>
-                      <span class="glyphicon glyphicon-log-out"></span> Sign Out, <%= current_user.name %>?
+                      <span class="glyphicon glyphicon-log-out"></span> Sign Out, <%= current_user.first_name %>?
                   <% end %>
 
                 </li>

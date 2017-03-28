@@ -3,7 +3,7 @@
       <a href="#"><%= @post.title %></a>
     </h2>
     <p class="lead">
-      by <%= @post.user.name %>
+      by <%= @post.user.first_name %>
     </p>
     <p><span class="glyphicon glyphicon-time"></span> Posted on <%= @post.created_at.strftime("%B %d, %Y")%> at <%= @post.created_at.strftime("%H:%M") %></p>
     <hr>
