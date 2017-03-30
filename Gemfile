@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'slim'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-group :development, :test do
+group :development, :production, :test do
   gem 'byebug'
   gem 'bootstrap-sass'
   gem 'devise'
@@ -27,7 +27,6 @@ end
 
 group :test do
   gem 'cucumber-rails', :require => false
-  # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
