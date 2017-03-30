@@ -18,6 +18,7 @@ group :development, :production, :test do
   gem 'devise'
   gem 'cancancan'
   gem 'simple_form'
+  gem 'rails_12factor'
 end
 
 group :development do
