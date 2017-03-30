@@ -74,20 +74,6 @@
   </div>
 </div>
 
-<!--notices and alerts messages-->
-<%if notice.present? %>
-  <div class="alert alert-info alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-<%if alert.present? %>
-<div class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <%= flash[:alert] %>
-</div>
-<% end %>
-
 <!-- Page Content -->
 <div class="container">
 
@@ -100,6 +86,8 @@
         Blog for Rails Reactor
         <small>I tried to make it nice</small>
       </h1>
+
+      <%= flash_messages %>
 
       <!--Content-->
       <%=yield %>

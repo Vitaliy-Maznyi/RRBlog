@@ -1,0 +1,4 @@
+= simple_form_for([@post, @post.comments.build]) do |f|
+  .form-group
+    = f.text_area :body, class: 'form-control'
+  = f.submit 'Add Comment', class: 'btn btn-success'

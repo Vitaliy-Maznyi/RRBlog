@@ -1,9 +1,0 @@
-
-<%= form_for([@post, @post.comments.build]) do |f| %>
-
-    <div class="form-group">
-      <%= f.text_area :body, class: 'form-control'  %>
-    </div>
-    <%= f.submit 'Add Comment', class: 'btn btn-success' %>
-
-<% end %>
