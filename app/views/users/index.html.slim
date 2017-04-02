@@ -1,3 +1,9 @@
 h1
   | This is your profile, 
   =@user.first_name + ' ' + @user.last_name
+  br
+  =show_avatar(@user)
+  br
+  = link_to profile_edit_path, class: 'btn btn-primary' do
+    |  Edit profile
+    span.glyphicon.glyphicon-edit
