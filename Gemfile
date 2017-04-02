@@ -19,6 +19,8 @@ group :development, :production, :test do
   gem 'cancancan'
   gem 'simple_form'
   gem 'rails_12factor'
+  gem 'carrierwave', '~> 1.0'
+  gem 'mini_magick'
 end
 
 group :development do

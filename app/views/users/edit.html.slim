@@ -1,0 +1,5 @@
+= simple_form_for @user do |f|
+  .form-group
+    = f.input :first_name, class: 'form-control'
+    = f.input :last_name, class: 'form-control'
+    = f.submit 'Save changes', class: 'btn btn-success'
