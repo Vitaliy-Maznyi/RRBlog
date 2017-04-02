@@ -1,6 +1,7 @@
 h2
   a[href="#"]
     = @post.title
+=show_avatar(@post.user)
 p.lead
   |  by 
   = @post.user.first_name

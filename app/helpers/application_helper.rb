@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+  def gravatar_url(email, size)
+    gravatar_id = Digest::MD5::hexdigest(email).downcase
+    default_url = 'https://www.gravatar.com/avatar/00000000000000000000000000000000'
+    url = "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=#{CGI::escape(default_url)}"
+  end
+
   BOOTSTRAP_FLASH_MSG = {
       success: 'alert-success',
       danger: 'alert-danger',
