@@ -6,6 +6,7 @@ class Ability
 
     can :manage, Post, user_id: user.id
     can [:create, :destroy], Comment, user_id: user.id
-    can [:create, :destroy], Comment, Post: {user_id: user.id}
+    can [:create, :destroy], Comment, Post: { user_id: user.id }
+    can :manage, :all if user.is_admin?
   end
 end

@@ -1,9 +1,42 @@
-h1
-  | This is your profile, 
-  =@user.first_name + ' ' + @user.last_name
-  br
-  =show_avatar(@user)
-  br
-  = link_to profile_edit_path, class: 'btn btn-primary' do
-    |  Edit profile
-    span.glyphicon.glyphicon-edit
+= stylesheet_link_tag '_bootstrap-sprockets'
+= stylesheet_link_tag '_bootstrap'
+= stylesheet_link_tag 'profile'
+= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Holtwood One SC'
+body.profile
+  .header
+    .avatar
+      = show_avatar(@user)
+  .container
+    .name-main
+      .name
+        h1
+          = @user.full_name
+      .menu
+    .info-main
+      .btn-group
+        button.btn.gear.dropdown-toggle[data-toggle="dropdown"]
+          img src='Gear.png'
+        ul.dropdown-menu
+          li
+            = link_to 'Edit profile', profile_edit_path
+          li>
+            = link_to 'New post', new_post_path
+          li>
+            = link_to 'Sign out', destroy_user_session_path, method: :delete
+      .info
+        .posts
+          'Posts:
+          = @user.posts.count
+        .comments
+          'Comments:
+          = @user.comments.count
+        .about
+          .title
+            | About me:
+          .description
+            | My name is Vitalii!
+
+script src="http://code.jquery.com/jquery-1.9.1.js"
+script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
+script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"

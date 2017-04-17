@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  root 'posts#index'
+  devise_for :users, controllers: { registrations: 'registrations' }
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
-  resources :users, only: [:show, :edit, :update]
-  get '/profile', to: 'users#index'
-  get '/profile/edit', to: 'users#edit'
+  namespace :admin do
+    resources :users, only: [:index, :edit, :update]
+  end
 
   resources :posts do
     resources :comments, only: [:create, :destroy]
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :budget
 
-  root 'posts#index'
-
+  resources :users, only: [:show, :edit, :update]
+  get '/profile', to: 'users#index'
+  get '/profile/edit', to: 'users#edit'
 end

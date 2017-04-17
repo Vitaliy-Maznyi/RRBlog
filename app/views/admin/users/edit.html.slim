@@ -1,7 +1,7 @@
-= simple_form_for @user, html: { multipart: true } do |f|
+= simple_form_for [:admin, @admin_user], html: { multipart: true } do |f|
   .form-group
     = f.input :first_name, class: 'form-control'
     = f.input :last_name, class: 'form-control'
-    = show_avatar(@user)
+    = show_avatar(@admin_user)
     = f.file_field :avatar, class: 'form-control'
     = f.submit 'Save changes', class: 'btn btn-success'
