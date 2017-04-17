@@ -1,0 +1,103 @@
+.profile {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #e6e6e6;
+  font-size: 20px;
+}
+.header{
+  position: relative;
+  background: url("profile-bg.jpg") no-repeat center top fixed;
+  background-size: cover;
+  top: 0;
+  width: 100%;
+  min-height: 150px;
+  overflow: visible;
+}
+
+.name-main {
+  min-height: 80px;
+  position: relative;
+  background-color: white;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  width: 50%;
+  left: 48%;
+}
+
+.avatar {
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  z-index: 1;
+  border-style: ridge;
+}
+
+.avatar img {
+  width: 200px;
+  height: 200px;
+}
+
+.name {
+  font-family: 'Holtwood One SC';
+  position: absolute;
+  font-size: 2.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10%;
+}
+.info-main {
+  position: relative;
+  background-color: white;
+  margin: 10px;
+  min-height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5)
+}
+.info {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10%;
+  width: 50%;
+}
+.posts {
+  background-color: #e6e6e6;
+  margin: 10px;
+  min-height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+}
+.comments {
+  background-color: #e6e6e6;
+  margin: 10px;
+  min-height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.about {
+  background-color: #e6e6e6;
+  margin: 10px;
+  min-height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  width: 40%;
+  right: 10%;
+}
+
+.dropdown-menu {
+  top: 0;
+  left: 100%;
+}
+
+.gear {
+  background-color: white;
+}
+
+.btn img {
+  height: 120px;
+  width: 120px;
+}

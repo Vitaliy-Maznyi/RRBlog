@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  load_and_authorize_resource except: [ :index, :show]
+  load_and_authorize_resource except: [:index, :show]
 
   def index
-    if params[:search]
-      @post = Post.search(params[:search])
-    else
-      @post = Post.all
-    end
+    @post = if params[:search]
+              Post.search(params[:search])
+            else
+              Post.all
+            end
   end
 
   def show
@@ -41,7 +41,8 @@ class PostsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:post).permit(:title, :text)
-    end
+
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end

@@ -1,24 +1,28 @@
 module ApplicationHelper
+  def gravatar_url(email, size)
+    gravatar_id = Digest::MD5.hexdigest(email).downcase
+    default_url = 'http://rrmyblog.herokuapp.com/avatar_default.png'
+    url = "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=#{CGI.escape(default_url)}"
+  end
 
   BOOTSTRAP_FLASH_MSG = {
-      success: 'alert-success',
-      danger: 'alert-danger',
-      alert: 'alert-block',
-      notice: 'alert-info'
-  }
+    success: 'alert-success',
+    danger: 'alert-danger',
+    alert: 'alert-block',
+    notice: 'alert-info'
+  }.freeze
 
   def bootstrap_class_for(flash_type)
     BOOTSTRAP_FLASH_MSG.fetch(flash_type.to_sym, flash_type.to_s)
   end
 
-  def flash_messages(opts = {})
+  def flash_messages(_opts = {})
     flash.each do |msg_type, message|
       concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in") do
-        concat content_tag(:button, '×'.html_safe, class: "close", data: { dismiss: 'alert' })
+        concat content_tag(:button, '×'.html_safe, class: 'close', data: { dismiss: 'alert' })
         concat message
       end)
     end
     nil
   end
-
 end

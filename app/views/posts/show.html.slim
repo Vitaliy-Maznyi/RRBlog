@@ -1,6 +1,7 @@
 h2
   a[href="#"]
     = @post.title
+=show_avatar(@post.user)
 p.lead
   |  by 
   = @post.user.first_name
@@ -15,10 +16,9 @@ p
   = @post.text
 hr
 - if user_signed_in? && (can? :update, @post)
-  |  <a class="btn btn-primary" href="/posts/
-  =@post.id
-  | /edit">Edit 
-  span.glyphicon.glyphicon-edit
+  = link_to edit_post_path(@post), class: 'btn btn-primary' do
+    |  Edit
+    span.glyphicon.glyphicon-edit
   = link_to post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
     |  Delete 
     span.glyphicon.glyphicon-remove

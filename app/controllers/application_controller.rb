@@ -6,5 +6,4 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do
     redirect_to main_app.new_user_session_url
   end
-
 end
