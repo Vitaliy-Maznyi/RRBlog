@@ -13,7 +13,7 @@
     = post.created_at.strftime("%H:%M")
   hr
   p
-    = truncate(post.text, :length => 500)
+    = truncate(post.text.html_safe, length: 500, escape: false)
   hr
   = link_to post_path(post), class: 'btn btn-primary' do
     ' Read more
