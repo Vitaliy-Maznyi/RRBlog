@@ -61,6 +61,7 @@
   transform: translateY(-50%);
   right: 10%;
   width: 50%;
+  text-align: center;
 }
 .posts {
   background-color: #e6e6e6;
@@ -68,6 +69,7 @@
   min-height: 50px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-align: left;
 
 }
 .comments {
@@ -76,6 +78,7 @@
   min-height: 50px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-align: left;
 }
 
 .about {
@@ -84,8 +87,12 @@
   min-height: 50px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  width: 40%;
   right: 10%;
+  text-align: left;
+}
+
+.description {
+
 }
 
 .dropdown-menu {

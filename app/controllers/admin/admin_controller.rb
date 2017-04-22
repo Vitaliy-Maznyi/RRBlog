@@ -1,9 +1,9 @@
 class Admin::AdminController < ApplicationController
-  before_action :is_admin?
+  before_action :admin?
 
-  private
+private
 
-  def is_admin?
+  def admin?
     redirect_to(new_user_session_path) unless current_user.try(:is_admin?)
   end
 end

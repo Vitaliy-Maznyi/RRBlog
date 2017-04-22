@@ -2,7 +2,6 @@
 # in separate files. This file adds all other parameters apart from Enabled.
 
 require: rubocop
-require: rubocop-rspec
 
 RSpec/DescribeClass:
   Enabled: false
@@ -305,7 +304,7 @@ Style/BracesAroundHashParameters:
 
 # Indentation of `when`.
 Style/CaseIndentation:
-  IndentWhenRelativeTo: case
+  EnforcedStyle: case
   SupportedStyles:
     - case
     - end
@@ -550,7 +549,7 @@ Style/HashSyntax:
 
 Style/IfUnlessModifier:
   Enabled: false
-  MaxLineLength: 80
+  MaxLineLength: 120
 
 Style/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
@@ -970,7 +969,7 @@ Style/VariableName:
     - camelCase
 
 Style/WhileUntilModifier:
-  MaxLineLength: 80
+  MaxLineLength: 120
 
 Style/WordArray:
   EnforcedStyle: percent
@@ -986,7 +985,7 @@ Style/WordArray:
 Metrics/AbcSize:
   # The ABC size is a calculated magnitude, so this number can be a Fixnum or
   # a Float.
-  Max: 25
+  Max: 40
 
 Metrics/BlockNesting:
   Max: 3
@@ -1004,7 +1003,7 @@ Metrics/CyclomaticComplexity:
   Max: 10
 
 Metrics/LineLength:
-  Max: 120
+  Max: 125
   # To make it possible to copy or click on URIs in the code, we allow lines
   # contaning a URI to be longer than Max.
   AllowHeredoc: true
@@ -1041,7 +1040,7 @@ Lint/EndAlignment:
   # situations, `end` should still be aligned with the keyword.
   # The value `start_of_line` means that `end` should be aligned with the start
   # of the line which the matching keyword appears on.
-  AlignWith: keyword
+  EnforcedStyleAlignWith: keyword
   SupportedStyles:
     - keyword
     - variable
@@ -1053,7 +1052,7 @@ Lint/DefEndAlignment:
   # The value `start_of_line` means that `end` should be aligned with method
   # calls like `private`, `public`, etc, if present in front of the `def`
   # keyword on the same line.
-  AlignWith: start_of_line
+  EnforcedStyleAlignWith: start_of_line
   SupportedStyles:
     - start_of_line
     - def

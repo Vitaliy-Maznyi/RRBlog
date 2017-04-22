@@ -8,7 +8,8 @@
 /.bundle
 
 #IDE configs
-/.idea
+.idea/
+.semaphore-cache/
 
 # Ignore all logfiles and tempfiles.
 /log/*

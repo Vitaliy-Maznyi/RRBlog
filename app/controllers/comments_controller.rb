@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     redirect_to post_path(@post)
   end
 
-  private
+private
 
   def comment_params
     params.require(:comment).permit(:body).merge(user_id: current_user.id)

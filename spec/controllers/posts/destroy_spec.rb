@@ -15,7 +15,7 @@ describe PostsController do
 
     it 'redirects to posts#index' do
       delete :destroy, id: post.id
-      expect(response).to redirect_to action: :index
+      expect(response).to redirect_to posts_path
     end
   end
 end

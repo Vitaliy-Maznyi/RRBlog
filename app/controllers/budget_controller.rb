@@ -7,7 +7,7 @@ class BudgetController < ApplicationController
 
   def create
     @budget = Budget.new(budget_params)
-    if !@budget.amount.is_a?(Integer) || @budget.amount.nil? || (@budget.amount == 0)
+    if !@budget.amount.is_a?(Integer) || @budget.amount.nil? || @budget.amount.zero?
       redirect_to action: 'index'
     else
       @budget.amount_per_day = Budget.summ(amounts_today) + @budget.amount
@@ -21,7 +21,7 @@ class BudgetController < ApplicationController
     redirect_to budget_path
   end
 
-  private
+private
 
   def budget_params
     params.require(:budget).permit(:amount, :source)

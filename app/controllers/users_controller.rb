@@ -17,9 +17,9 @@ class UsersController < ApplicationController
     @user.update(user_params) ? (redirect_to profile_path) : (render 'edit')
   end
 
-  private
+private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :avatar, :description)
   end
 end

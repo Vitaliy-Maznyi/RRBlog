@@ -23,6 +23,7 @@ group :development, :production, :test do
   gem 'carrierwave', '~> 1.0'
   gem 'devise'
   gem 'mini_magick'
+  gem 'ransack'
   gem 'simple_form'
 end
 

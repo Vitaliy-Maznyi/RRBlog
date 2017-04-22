@@ -1,19 +1,30 @@
 table.table.table-hover
   thead
     tr
-      th id
-      th Email
-      th First Name
-      th Last Name
+      th =sort_link(@search, :id)
+      th =sort_link(@search, :email)
+      th =sort_link(@search, :first_name, 'First Name')
+      th =sort_link(@search, :last_name, 'Last Name')
+      th =sort_link(@search, :description)
       th is_admin?
       th edit user
   tbody
-    - @admin_user.each do |user|
+    = search_form_for @search, :url => admin_users_path do |f|
+      tr
+        td = f.search_field :id_eq, class: "form-control"
+        td = f.search_field :email_cont, class: "form-control"
+        td = f.search_field :first_name_cont, class: "form-control"
+        td = f.search_field :last_name_cont, class: "form-control"
+        td = f.search_field :description_cont, class: "form-control"
+        td = f.submit 'Search', class: 'btn btn-sm btn-success'
+        td = link_to 'Reset', admin_users_path, class: 'btn btn-sm btn-danger'
+    - @admin_users.each do |user|
       tr
         td = user.id
         td = user.email
         td = user.first_name
         td = user.last_name
+        td = user.description
         td = user.is_admin
         td
           = link_to edit_admin_user_path(user), class: 'btn btn-primary' do

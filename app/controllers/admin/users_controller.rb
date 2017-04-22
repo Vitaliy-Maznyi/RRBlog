@@ -1,6 +1,11 @@
 class Admin::UsersController < Admin::AdminController
   def index
-    @admin_user = User.all.order(:id)
+    @search = User.ransack(params[:q])
+    @admin_users = if params[:q]
+                     @search.result
+                   else
+                     User.all.order(:id)
+                   end
   end
 
   def edit
@@ -16,9 +21,9 @@ class Admin::UsersController < Admin::AdminController
     end
   end
 
-  private
+private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :avatar, :is_admin?)
+    params.require(:user).permit(:first_name, :last_name, :avatar, :description, :is_admin?)
   end
 end
