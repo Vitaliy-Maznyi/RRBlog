@@ -25,6 +25,7 @@ group :development, :production, :test do
   gem 'mini_magick'
   gem 'ransack'
   gem 'simple_form'
+  gem 'tinymce-rails'
 end
 
 group :development do
