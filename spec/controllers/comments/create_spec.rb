@@ -22,8 +22,9 @@ describe CommentsController do
 
     context 'with invalid attributes' do
       it 'does not save the new comment' do
-        expect { post_query }.to raise_error(ActiveRecord::RecordInvalid,
-                                             'Validation failed: Body Must be at least 2 characters, Body can\'t be blank')
+        expect { post_query }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed:
+                                                                           Body Must be at least 2 characters,
+                                                                           Body can\'t be blank')
       end
     end
   end

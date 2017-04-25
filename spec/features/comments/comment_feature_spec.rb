@@ -16,7 +16,7 @@ describe 'Comments' do
     end
 
     it 'deletes existing comment' do
-      click_link('delete_comment', :href => "/posts/#{post.id}/comments/#{comment.id}")
+      click_link('delete_comment', href: "/posts/#{post.id}/comments/#{comment.id}")
       expect(page).to have_no_content 'Awesome comment number 1'
     end
   end
