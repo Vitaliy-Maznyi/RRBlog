@@ -3,11 +3,11 @@ class PostsController < ApplicationController
   load_and_authorize_resource except: [:index, :show]
 
   def index
-    @post = if params[:search]
-              Post.search(params[:search])
-            else
-              Post.all
-            end
+    @posts = if params[:search]
+               Post.search(params[:search])
+             else
+               Post.all.page(params[:page])
+             end
   end
 
   def show

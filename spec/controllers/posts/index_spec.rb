@@ -8,7 +8,7 @@ describe PostsController do
     end
 
     it 'fills an array of posts' do
-      expect(assigns(:post)).to match_array(posts_list)
+      expect(assigns(:posts)).to match_array(posts_list)
     end
 
     it 'renders the :index view' do
