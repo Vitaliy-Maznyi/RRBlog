@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     @posts = if params[:search]
                Post.search(params[:search])
              else
-               Post.all.page(params[:page])
+               Post.all.order('updated_at DESC').page(params[:page])
              end
   end
 
