@@ -17,3 +17,5 @@
 //= require_tree .
 //= require budget
 //= require tinymce
+//= require rails.validations
+//= require rails.validations.simple_form
