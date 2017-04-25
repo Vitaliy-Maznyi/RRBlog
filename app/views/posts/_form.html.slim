@@ -1,4 +1,4 @@
-= simple_form_for @post do |f|
+= simple_form_for @post, validate: true do |f|
   .form-group
     = f.input :title, class: 'form-control'
     = f.text_area :text, class: 'tinymce form-control'
