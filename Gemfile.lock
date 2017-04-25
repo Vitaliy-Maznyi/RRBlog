@@ -235,6 +235,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.2)
+    tinymce-rails (4.5.6)
+      railties (>= 3.1.1)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -260,6 +262,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   cancancan
+  capybara
   carrierwave (~> 1.0)
   coffee-rails (~> 4.1.0)
   cucumber-rails
@@ -281,6 +284,7 @@ DEPENDENCIES
   simple_form
   slim
   spring
+  tinymce-rails
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

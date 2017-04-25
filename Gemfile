@@ -25,6 +25,7 @@ group :development, :production, :test do
   gem 'mini_magick'
   gem 'ransack'
   gem 'simple_form'
+  gem 'tinymce-rails'
 end
 
 group :development do
@@ -33,6 +34,7 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails'

@@ -1,7 +1,9 @@
 require 'factory_girl_rails'
 require 'rails_helper'
 require 'support/controller_helpers'
+require 'support/features_helpers'
 require 'database_cleaner'
+require 'capybara/rspec'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -18,6 +20,7 @@ RSpec.configure do |config|
 
   config.include Devise::TestHelpers, type: :controller
   config.include ControllerHelpers, type: :controller
+  config.include FeaturesHelpers, type: :feature
   config.include Rails.application.routes.url_helpers
 
   config.before(:suite) do
