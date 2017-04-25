@@ -1,4 +1,4 @@
-- @post.reverse.each do |post|
+- @posts.reverse.each do |post|
   h2
     = link_to post.title, post_path(post)
   =show_avatar(post.user)
@@ -26,3 +26,4 @@
       ' Delete
       span.glyphicon.glyphicon-remove
   hr[style="height: 3px; background-color: lightgrey; color: black; "]
+= paginate @posts

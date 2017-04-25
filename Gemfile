@@ -24,6 +24,7 @@ group :development, :production, :test do
   gem 'client_side_validations'
   gem 'client_side_validations-simple_form'
   gem 'devise'
+  gem 'kaminari'
   gem 'mini_magick'
   gem 'ransack'
   gem 'simple_form'
