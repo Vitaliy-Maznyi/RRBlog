@@ -5,4 +5,5 @@
     = show_avatar(@admin_user)
     = f.file_field :avatar, class: 'form-control'
     = f.input :description, class: 'form-control'
+    = f.input :is_admin, as: :boolean, class: 'form-control'
     = f.submit 'Save changes', class: 'btn btn-success'

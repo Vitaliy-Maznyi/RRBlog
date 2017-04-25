@@ -24,6 +24,6 @@ class Admin::UsersController < Admin::AdminController
 private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :avatar, :description, :is_admin?)
+    params.require(:user).permit(:first_name, :last_name, :avatar, :description, :is_admin)
   end
 end
