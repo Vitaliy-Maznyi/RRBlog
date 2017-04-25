@@ -1,26 +1,30 @@
-== How to run app on localhost on Ubuntu 
+# RRBlog
+
+Pet project for learning new features and technologies
+
+# Used
 
 rails 4.2.6
 
 postgresql 9.5
 
-If you want to use your own postresql login and password for connection to db, you will need to change settings in myblog/config *database.yml* file. Change username and password values on the lines 24-25 . Or you can create the same db user as mine.
+rspec
 
-[Create a PostgreSQL superuser user in Ubuntu with this commands:] 
-* $sudo -u postgres createuser -s vitaliy 
-* $sudo -u postgres psql \password vitaliy
-* Enter password "12345" at the prompt without quotes, and confirm it.
-* Now you may exit the PostgreSQL console by entering this command: \\q
+rubocop
 
+### Installing
 
-[Enter to MyBlog directory at the promt and create database with this command:] ~/myblog$ rake db:create
+git clone 
+rake db:setup
 
-[Install gems:] ~/myblog$ bundle install
+## Running the tests
 
-[Run the migration:] ~/myblog$ rake db:migrate
+bundle exec rspec spec
 
-[And run server:] ~/myblog$ rails s
+## Check your codestyle
 
-Now you should be able to access MyBlog app in a web browser via http://localhost:3000
+bundle exec rubocop
 
-Second frontend task available on clicking "Simple Budget" tab on menu
+## Deployment
+
+Deployed on heroku [http://rrmyblog.herokuapp.com/](http://rrmyblog.herokuapp.com/)
