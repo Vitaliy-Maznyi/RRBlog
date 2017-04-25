@@ -1,3 +1,5 @@
+[![Build Status](https://semaphoreci.com/api/v1/vitalii_maznyi/rrblog/branches/master/badge.svg)](https://semaphoreci.com/vitalii_maznyi/rrblog)
+
 # RRBlog
 
 Pet project for learning new features and technologies
