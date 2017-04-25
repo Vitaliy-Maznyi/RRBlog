@@ -1,11 +1,8 @@
-describe 'post feature', type: :feature do
+describe 'Post' do
   let(:user) { create :user }
 
-  before(:each) do
-    sign_in user
-  end
-
   it 'creates a new post' do
+    sign_in user
     visit new_post_path
     fill_in 'post_title', with: 'New title for post'
     fill_in 'post_text', with: 'Interesting post with lots of words'

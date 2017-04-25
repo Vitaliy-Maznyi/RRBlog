@@ -21,12 +21,12 @@ group :development, :production, :test do
   gem 'byebug'
   gem 'cancancan'
   gem 'carrierwave', '~> 1.0'
+  gem 'client_side_validations'
+  gem 'client_side_validations-simple_form'
   gem 'devise'
   gem 'mini_magick'
   gem 'ransack'
   gem 'simple_form'
-  gem 'client_side_validations'
-  gem 'client_side_validations-simple_form'
   gem 'tinymce-rails'
 end
 

@@ -10,6 +10,7 @@
 #IDE configs
 .idea/
 .semaphore-cache/
+.byebug_history
 
 # Ignore all logfiles and tempfiles.
 /log/*

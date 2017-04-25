@@ -20,9 +20,12 @@ describe 'Comments' do
       expect(page).to have_no_content 'Awesome comment number 1'
     end
   end
-  # scenario 'invalid creation' do
-  #   it '' do
-  #
+
+  # context 'with invalid params' do
+  #   it 'does not create a new comment' do
+  #     fill_in 'comment_body', with: 'a'
+  #     click_button 'Add Comment'
+  #     expect(page).to have_content 'Must be at least 2 characters'
   #   end
   # end
 end

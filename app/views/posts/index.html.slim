@@ -19,7 +19,7 @@
     ' Read more
     span.glyphicon.glyphicon-chevron-right
   - if can? :update, post
-    = link_to post_path(post), class: 'btn btn-primary' do
+    = link_to edit_post_path(post), id: 'edit_post', class: 'btn btn-primary' do
       ' Edit
       span.glyphicon.glyphicon-edit
     = link_to post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
