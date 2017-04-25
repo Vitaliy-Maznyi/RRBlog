@@ -1,4 +1,4 @@
-[![Build Status](https://semaphoreci.com/api/v1/vitalii_maznyi/rrblog/branches/master/badge.svg)](https://semaphoreci.com/vitalii_maznyi/rrblog)
+[![Build Status](https://semaphoreci.com/api/v1/vitalii_maznyi/rrblog/branches/master/shields_badge.svg)](https://semaphoreci.com/vitalii_maznyi/rrblog)
 
 # RRBlog
 
